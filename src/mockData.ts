@@ -1,0 +1,148 @@
+import { Booking, Equipment, Request } from './types';
+
+export const MOCK_BOOKINGS: Booking[] = [
+  {
+    id: 'BK-001',
+    equipmentName: 'John Deere 5050D Tractor',
+    equipmentId: '#JD-99231',
+    farmerName: 'Ramesh Kumar',
+    farmerAvatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA9etPJTbmB8j2tuKAnRjvUxBE9UFXCM8PYOYk8zPt1iVH6uAw0fojICd4GzxxRPfSJJmoS5mwCVMQ-OdwpaY-TnIsC6QI_ovPVA_eyOG10trQbt9U31M1Ys3GlBTmQOIkBQDg4ChBE-Le9bgu0lvZLCMUJ-LzUqPIqMfX5iNjuEpY-jSHH7JXaRl_B8Zh2EuwuUyjVE1bDRkh-0AugxhfIaLCXCEgdHvzBpkI9G4UwOlt7QnGo6b4AaOexSfVEgKv99rq7wMo-aJo',
+    date: '24 Oct 2023',
+    timeSlot: '08:00 AM - 04:00 PM',
+    location: 'Green Valley Farm, Sector 4, Punjab',
+    status: 'active',
+    usageRemaining: '3h 45m',
+    usageTotal: '5h 00m',
+    speed: '15 km/h'
+  },
+  {
+    id: 'BK-002',
+    equipmentName: 'Kubota Combine Harvester',
+    equipmentId: '#KB-12345',
+    farmerName: 'Suresh Singh',
+    date: '25 Oct 2023',
+    timeSlot: '06:00 AM - 06:00 PM',
+    location: 'Mansa Road, Barnala',
+    status: 'upcoming'
+  },
+  {
+    id: 'BK-003',
+    equipmentName: 'Mahindra Arjun 605',
+    equipmentId: '#MA-55667',
+    farmerName: 'Vikram Dev',
+    date: '22 Oct 2023',
+    timeSlot: '09:00 AM - 05:00 PM',
+    location: 'Ludhiana, Punjab',
+    status: 'completed',
+    earnings: 2500
+  }
+];
+
+export const INITIAL_EQUIPMENT: Equipment[] = [
+  {
+    id: 'EQ-001',
+    name: 'John Deere 8R 410',
+    model: '2023 • Heavy Duty',
+    type: 'Tractor',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAT5ul8DKVO3kQAmFfvEQuP2u52XUVYIbgKL6VfBR3ETr0FO6cO1u80ysn_s6P0jwibOiCProd2EfIu2j9k9GxL6lR3WDtOyJ8FC3_a0WuHO47OwVdgSsl8CDk5mDVmV9N2m00_Rkuz5N11Nt-l-rcDwkEc_c6TRed4-IPJ3dAUHe4Su6TIIDTMIApUCfrD7aDS0XTwsGTRiD4BtM8upwTas-pT8OiY6ihRZFMphynRgQqn9DpgNF2r1Ett8AOHe9kSaVlokdHW2iOY',
+    location: 'North Field, Sector 4',
+    status: 'available',
+    fuelLevel: 84,
+    nextService: '12d',
+    pricePerHour: 450,
+    pricePerDay: 3500,
+    vehicleNumber: 'KA 01 MG 1234',
+    rcNumber: 'RC9876543210',
+    verified: true
+  },
+  {
+    id: 'EQ-002',
+    name: 'Case IH Axial-Flow 9250',
+    model: '2022 • Premium',
+    type: 'Harvester',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBv-lxkXJlbdmS5gFxJRKoPpM5f3f8pAnLNcBokw-5A1B9252aHciTb3uQyxgePmOjyahNPKXHed-uVJxwbuv6dW2iyCmgAT-uM7XL-bGBN0K1CGi-BZwUWASJd9QJOYGR1sm6ekWGE2OxeCXCVO7lXvR36e1IpyvYQPQ9azsoHX2CiqP5uTZNAo-Q8LqMTEFPiEsDWVm7o3wWkZ7i-Z_t4Uj7GMdy3a3Jb3BN88pZYjJfS5gWuZZ2YbUn127PaAyyPb_ha9tHLa05w',
+    location: 'Central Storage Warehouse',
+    status: 'maintenance',
+    lastUsed: 'Oct 14, 2023',
+    pricePerHour: 800,
+    pricePerDay: 6000,
+    vehicleNumber: 'PB 10 Z 9988',
+    rcNumber: 'RC1122334455',
+    verified: true
+  },
+  {
+    id: 'EQ-003',
+    name: 'DJI Agras T40',
+    model: '2023 • Advanced',
+    type: 'Drone',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBkOcJkuEk8T42V7CI7_Mn6u0CIgLlBJ0eOxUe2ViThfmNVMPGg9g1m9og6W7r9D7SO8Y_fq1VsDGjn7jD_8EwUxpJqBAEtZi7fb_uCT9kd_uCT5hSoee8w8dCM1RcJxnsbn9avkf4QK11YNwWumXtbSrf-QjJZfAkuePFDXp90lclfU1cUAaSc5wDDPtsZFhKvHheuHVJkplMHHR9SFB7yGQ6ZFWQ67z7h_Kz2ByJ_V6B_bwO92UGEqZQXfdblVZ4Qgr25trlHR4MV',
+    location: 'East Vineyard, Row 12',
+    status: 'available',
+    batteryLevel: 72,
+    pricePerHour: 200,
+    pricePerDay: 1500,
+    vehicleNumber: 'DR-9921',
+    rcNumber: 'RC-DR-001',
+    verified: true
+  },
+  {
+    id: 'EQ-004',
+    name: 'Mahindra Arjun 605',
+    model: '2021 • Power Plus',
+    type: 'Tractor',
+    image: 'https://picsum.photos/seed/tractor2/400/300',
+    location: 'South Farm, Plot 4',
+    status: 'available',
+    fuelLevel: 65,
+    nextService: '25d',
+    pricePerHour: 400,
+    pricePerDay: 3000,
+    vehicleNumber: 'KA 05 AB 5678',
+    rcNumber: 'RC1234567890',
+    verified: true
+  }
+];
+
+export const MOCK_REQUESTS: Request[] = [
+  {
+    id: 'REQ-001',
+    farmerName: 'John Doe',
+    farmerType: 'Professional Grain Farmer',
+    rating: 4.8,
+    reviewsCount: 95,
+    memberSince: 'Jan 2020',
+    location: 'Oak Creek Farm, WI',
+    equipmentName: 'John Deere 8R 410 Tractor',
+    duration: 'Oct 15 - Oct 17 (2 Days)',
+    distance: '1.2 miles away',
+    isUrgent: true,
+    status: 'pending',
+    breakdown: {
+      rentalFee: 900,
+      insurance: 80,
+      platformFee: 30,
+      total: 1010
+    }
+  },
+  {
+    id: 'REQ-002',
+    farmerName: 'Marcus Thompson',
+    farmerAvatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBbbtCrygJlPvC7d4sqxbFbws_HWy6CIMWQEv-POI9Z2C-hiR2CXz08icY7s_vpgObGgUzHhQ1L9daTt83-3iX5YYkP7FsxgVrb_8Sqx_aI_PSbEeVpCOo0UpssbDwdRzM5yz8hVAWHBAgeyfwa8FZkfGZsAsIQ2U_NXA9vrgeOo8w6pUT75Gp2hUUv6hki6QYjxZTrUw3MXBiTZ-SOJfRSzMHadjCY94vaz1zL_X4cDkE8HmSH5K5JRUl0WT7OjU6kgKYCMP6EUzpM',
+    farmerType: 'Professional Grain Farmer',
+    rating: 4.9,
+    reviewsCount: 124,
+    memberSince: 'May 2019',
+    location: 'Fairview Estates',
+    equipmentName: 'John Deere 8R 340 Tractor',
+    duration: 'Oct 12 - Oct 14 (3 Days)',
+    distance: '2.4 miles away',
+    note: 'Please drop off at the north gate of the property.',
+    status: 'pending',
+    breakdown: {
+      rentalFee: 1350,
+      insurance: 120,
+      platformFee: 45,
+      total: 1515
+    }
+  }
+];

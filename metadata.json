@@ -1,0 +1,7 @@
+{
+  "name": "SmartFarm Owner",
+  "description": "A comprehensive dashboard for farm equipment owners to manage their fleet, bookings, earnings, and real-time tracking.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
